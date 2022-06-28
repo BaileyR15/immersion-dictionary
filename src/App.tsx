@@ -15,10 +15,10 @@ function App(): JSX.Element {
   const getResults = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const definitions = await Axios.get("definitions", {params: {q: query}});
+    const definitions = await Axios.get("api/definitions", {params: {q: query}});
     let images = []
     try {
-      const resp = await Axios.get("images", {params: {q: query}});
+      const resp = await Axios.get("api/images", {params: {q: query}});
       console.log(resp)
       images = resp.data.value.slice(0, 4).map((i: {contentUrl: string}) => i.contentUrl);
     } catch (error) {
