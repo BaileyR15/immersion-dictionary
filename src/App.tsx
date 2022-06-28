@@ -9,7 +9,6 @@ import { ResultViewProps } from './ResultView';
 function App(): JSX.Element {
   const [query, setQuery] = React.useState("");
   const [results, setResults] = React.useState<ResultViewProps[]>([]);
-  console.log("RENDER")
 
   const setValue = (event: React.ChangeEvent<HTMLInputElement>) => setQuery(event.target.value);
   const getResults = async (event: React.FormEvent<HTMLFormElement>) => {

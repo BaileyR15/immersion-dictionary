@@ -16,5 +16,5 @@ module.exports = async function (context, req) {
       response.data = error;
     }
   
-    context.res = response.data;
+    context.res.json(response.data);
 }
