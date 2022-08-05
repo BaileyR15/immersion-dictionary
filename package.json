@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://127.0.0.1:3001/",
   "dependencies": {
+    "@azure/cosmos": "^3.16.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -22,9 +23,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "back": "nodemon server/index.js --ignore src",
-    "front": "react-scripts start",
-    "build": "CI=false react-scripts build",
+    "build": "react-scripts build",
+    "serve": "swa start build --api-location api",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
