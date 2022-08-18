@@ -21,8 +21,9 @@ module.exports = async function (context, req) {
     };
 
     const it = await items.query(querySpec);
-    if (it.hasMoreResults()) {
-      const result = (await it.fetchNext()).resources[0];
+    const page = await it.fetchNext();
+    if (page.resources.length > 0) {
+      const result = page.resources[0];
       await items.upsert({...result, accessed_at: [Date.now(), ...result.accessed_at]});
 
       context.res = {
